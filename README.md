@@ -6,6 +6,11 @@ By updating the compatibility checks inside the Deco M5 recovery binary, the val
 
 ---
 
+> [!IMPORTANT]
+> **Disclaimer & Legal Notice:** This toolset is provided strictly for educational, research, and hobbyist purposes to enable interoperability on personal, owned hardware. The authors and contributors do not condone, promote, or facilitate any illegal activities. Modifying device firmware carries risks of permanently bricking your device and may void your manufacturer warranty. Use these tools entirely at your own risk.
+
+---
+
 ## Technical Background: Why Unpatched Firmware Fails
 
 When attempting to flash an unpatched newer (or decrypted) Deco M5 firmware onto a Deco P7, the device will download the binary via TFTP/FTP in an infinite loop but refuses to flash it. This is caused by two distinct validation checks in the bootloader (U-Boot):
