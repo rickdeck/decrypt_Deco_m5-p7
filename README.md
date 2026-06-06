@@ -1,4 +1,4 @@
-# TP-Link Deco M5 to Deco P7 Firmware Compatibility Patch Toolset
+# TP-Link Deco M5 to Deco P7 Firmware Patch Toolkit
 
 This directory contains a standalone set of Python 3 utilities designed to decrypt newer TP-Link Deco M5 firmware updates (v1.9.4 and potentially newer) and patch unencrypted Deco M5 recovery firmware to allow installation on the Deco P7.
 
@@ -19,7 +19,7 @@ The patching script resolves both issues by:
 
 ---
 
-## Toolset Overview
+## Toolkit Overview
 
 The folder contains the following scripts:
 
@@ -97,6 +97,8 @@ python tp-link_patch_m5-p7.py "path/to/M5_1.9.4_decrypted.bin.dec" -o "M5v1_tp_r
   * **Zero Offset Shifting**: Overwrites target bytes in-place without resizing the file. This keeps the exact file size matching the original, preventing offsets in the `fwup-ptn` index from shifting out of alignment.
   * **U-Boot 32-Entry Limit Bypass**: Overwrites all remaining entries (entries 7-58 in v1.9.4) with newlines `\n`. U-Boot's tokenizer skips consecutive newlines, reducing the parsed entry count to 6 and preventing a hardcoded 32-entry tokenizer limit overflow in U-Boot.
 * **Output**: Generates a patched firmware container file named `M5v1_tp_recovery.bin` ready for TFTP recovery or Web UI upgrade on a Deco P7.
+
+---
 
 ### 5. Upgrade Deco P7 in recovery mode (TFTP)
 Follow description on https://www.tp-link.com/en/support/faq/2958/ to put the device in recovery mode and upgrade the firmware.
